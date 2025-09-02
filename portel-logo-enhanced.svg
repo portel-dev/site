@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <defs>
+    <!-- Enhanced portal gradient with more vibrant colors -->
+    <radialGradient id="portalCenter" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1">
+        <animate attributeName="stop-color" values="#00f2fe;#f093fb;#667eea;#00f2fe" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#f093fb;stop-opacity:0.8">
+        <animate attributeName="stop-color" values="#f093fb;#667eea;#764ba2;#f093fb" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3">
+        <animate attributeName="stop-color" values="#764ba2;#00f2fe;#f093fb;#764ba2" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </radialGradient>
+    
+    <!-- Swirl gradient for rings -->
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
+      <stop offset="33%" style="stop-color:#764ba2;stop-opacity:1"/>
+      <stop offset="66%" style="stop-color:#f093fb;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1"/>
+    </linearGradient>
+    
+    <!-- Enhanced glow -->
+    <filter id="portalGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Text style -->
+    <style>
+      .logo-text {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 48px;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+      .tagline {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+  
+  <!-- Background subtle glow -->
+  <ellipse cx="120" cy="40" rx="100" ry="30" fill="url(#portalCenter)" opacity="0.1"/>
+  
+  <!-- P -->
+  <text x="15" y="50" class="logo-text" fill="#667eea">P</text>
+  
+  <!-- Enhanced Portal O -->
+  <g transform="translate(58, 40)">
+    <!-- Outer glow aura -->
+    <circle cx="0" cy="0" r="25" fill="none" stroke="url(#ringGradient)" stroke-width="0.5" opacity="0.2" filter="url(#portalGlow)">
+      <animate attributeName="r" values="25;30;25" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Main outer ring with dash animation -->
+    <circle cx="0" cy="0" r="20" fill="none" stroke="url(#ringGradient)" stroke-width="3" 
+            stroke-dasharray="8 2" opacity="0.9" filter="url(#portalGlow)">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dasharray" values="8 2;2 8;8 2" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Middle ring -->
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#f093fb" stroke-width="2" 
+            stroke-dasharray="4 4" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="7s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Inner ring -->
+    <circle cx="0" cy="0" r="9" fill="none" stroke="#00f2fe" stroke-width="1.5" 
+            stroke-dasharray="2 3" opacity="0.6">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Portal vortex center -->
+    <circle cx="0" cy="0" r="5" fill="url(#portalCenter)" opacity="1">
+      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Center bright point -->
+    <circle cx="0" cy="0" r="2" fill="#ffffff" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Orbiting particles -->
+    <g>
+      <circle cx="0" cy="-18" r="1.5" fill="#00f2fe" opacity="0">
+        <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="18" cy="0" r="1.5" fill="#f093fb" opacity="0">
+        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="1s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="4s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="0" cy="18" r="1.5" fill="#667eea" opacity="0">
+        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="180 0 0" to="540 0 0" dur="4s" begin="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-18" cy="0" r="1.5" fill="#764ba2" opacity="0">
+        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="3s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="270 0 0" to="630 0 0" dur="4s" begin="3s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Energy sparks -->
+    <g opacity="0.6">
+      <path d="M 0,-8 L 0,-12" stroke="#00f2fe" stroke-width="1" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 0,-8 L 0,-12" stroke="#f093fb" stroke-width="1" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="45 0 0" to="405 0 0" dur="8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 0,-8 L 0,-12" stroke="#667eea" stroke-width="1" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 0,-8 L 0,-12" stroke="#764ba2" stroke-width="1" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="135 0 0" to="495 0 0" dur="8s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- RTEL with enhanced styling -->
+  <text x="88" y="50" class="logo-text" fill="#667eea">R</text>
+  
+  <!-- Special double T effect -->
+  <g transform="translate(125, 40)">
+    <!-- Shadow T -->
+    <text x="-2" y="10" class="logo-text" fill="#764ba2" opacity="0.3" style="filter: blur(1.5px);">T</text>
+    <!-- Main T -->
+    <text x="0" y="10" class="logo-text" fill="#667eea">T</text>
+  </g>
+  
+  <!-- EL -->
+  <text x="155" y="50" class="logo-text" fill="#667eea">EL</text>
+  
+  <!-- Animated tagline -->
+  <text x="120" y="72" class="tagline" fill="#764ba2" text-anchor="middle" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4s" repeatCount="indefinite"/>
+    n→1 PORTAL MAGIC
+  </text>
+</svg>

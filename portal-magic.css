@@ -1,16 +1,24 @@
 /* Magical Portal UI - Complete Implementation */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* CSS Variables for Portal Magic */
+/* CSS Variables for Portal Magic - Enhanced Logo Colors */
 :root {
     --portal-primary: #667eea;
     --portal-secondary: #764ba2;
     --portal-accent: #f093fb;
     --portal-energy: #00f2fe;
+    --portal-success: #10b981;
     --portal-glow: rgba(102, 126, 234, 0.3);
+    --portal-dark-bg: #0a0a0f;
+    --portal-light-bg: #ffffff;
     --world-left-bg: #1a1b26;
     --world-right-bg: #16213e;
     --particle-color: #4facfe;
+    
+    /* Enhanced gradients matching the logo */
+    --portal-gradient: linear-gradient(45deg, var(--portal-primary), var(--portal-secondary));
+    --portal-ring-gradient: linear-gradient(0deg, var(--portal-primary), var(--portal-secondary), var(--portal-accent), var(--portal-energy));
+    --portal-text-gradient: linear-gradient(90deg, var(--portal-primary), var(--portal-secondary), var(--portal-accent));
 }
 
 * {
@@ -21,8 +29,8 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(ellipse at center, #0f1419 0%, #000000 100%);
-    color: #ffffff;
+    background: radial-gradient(ellipse at center, var(--portal-dark-bg) 0%, #000000 100%);
+    color: var(--portal-light-bg);
     overflow-x: hidden;
 }
 
@@ -194,7 +202,7 @@ body {
     position: absolute;
     border-radius: 50%;
     border: 3px solid transparent;
-    background: linear-gradient(45deg, var(--portal-primary), var(--portal-secondary), var(--portal-accent));
+    background: var(--portal-ring-gradient);
     background-clip: padding-box;
     animation: rotate 8s linear infinite;
 }
@@ -312,7 +320,7 @@ body {
 .portal-title {
     font-size: 2rem;
     font-weight: 800;
-    background: linear-gradient(45deg, var(--portal-primary), var(--portal-accent));
+    background: var(--portal-text-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -326,7 +334,7 @@ body {
 }
 
 .portal-cta {
-    background: linear-gradient(45deg, var(--portal-primary), var(--portal-secondary));
+    background: var(--portal-gradient);
     border: none;
     padding: 1rem 2rem;
     border-radius: 50px;
@@ -334,7 +342,7 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 25px var(--portal-glow);
 }
 
 .portal-cta:hover {

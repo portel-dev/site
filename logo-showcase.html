@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portel Logo Showcase</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --portal-primary: #667eea;
+            --portal-secondary: #764ba2;
+            --portal-accent: #f093fb;
+            --portal-energy: #00f2fe;
+            --dark-bg: #0a0a0f;
+            --light-bg: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            color: white;
+        }
+        
+        .showcase {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--portal-primary), var(--portal-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .logo-variant {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-variant.light {
+            background: white;
+            color: var(--dark-bg);
+        }
+        
+        .variant-title {
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: var(--portal-primary);
+        }
+        
+        .variant-description {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+        
+        /* Text-based animated logo */
+        .text-logo {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .text-logo .portal-o {
+            display: inline-block;
+            position: relative;
+            width: 2.5rem;
+            height: 2.5rem;
+            margin: 0 -0.2rem;
+        }
+        
+        .portal-ring {
+            position: absolute;
+            border: 2px solid;
+            border-radius: 50%;
+            border-image: linear-gradient(45deg, var(--portal-primary), var(--portal-secondary), var(--portal-accent)) 1;
+            animation: rotate 4s linear infinite;
+        }
+        
+        .portal-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .portal-ring:nth-child(2) {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            animation-direction: reverse;
+            animation-duration: 3s;
+        }
+        
+        .portal-ring:nth-child(3) {
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            animation-duration: 2s;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Icon version */
+        .icon-logo {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+        
+        .icon-portal {
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from 0deg, var(--portal-primary), var(--portal-secondary), var(--portal-accent), var(--portal-energy), var(--portal-primary));
+            border-radius: 50%;
+            animation: rotate 4s linear infinite;
+            position: relative;
+        }
+        
+        .icon-portal::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            background: var(--dark-bg);
+            border-radius: 50%;
+        }
+        
+        .icon-portal::after {
+            content: '';
+            position: absolute;
+            width: 20%;
+            height: 20%;
+            top: 40%;
+            left: 40%;
+            background: radial-gradient(circle, var(--portal-energy), var(--portal-accent));
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+        }
+        
+        /* Wordmark version */
+        .wordmark {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--portal-primary), var(--portal-secondary), var(--portal-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+        
+        .wordmark .special-t {
+            display: inline-block;
+            position: relative;
+        }
+        
+        .wordmark .special-t::after {
+            content: 'T';
+            position: absolute;
+            left: 2px;
+            top: 0;
+            opacity: 0.3;
+            filter: blur(1px);
+        }
+        
+        /* TELEPORTELEPORT animation */
+        .teleport-loop {
+            font-size: 1rem;
+            font-weight: 600;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 300px;
+            height: 30px;
+            mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+            -webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+        }
+        
+        .teleport-text {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .teleport-text .highlight {
+            color: var(--portal-primary);
+            font-weight: 800;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Theme variations */
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase">
+        <h2>Portel Logo Variations</h2>
+        
+        <div class="logo-grid">
+            <!-- Main animated SVG logo -->
+            <div class="logo-variant">
+                <img src="portel-logo-enhanced.svg" alt="Portel Logo" width="240">
+                <div class="variant-title">Enhanced Primary Logo</div>
+                <div class="variant-description">Multi-layer portal animation with energy effects</div>
+            </div>
+            
+            <!-- Text-based CSS logo -->
+            <div class="logo-variant">
+                <div class="text-logo">
+                    P<span class="portal-o">
+                        <span class="portal-ring"></span>
+                        <span class="portal-ring"></span>
+                        <span class="portal-ring"></span>
+                    </span>RTEL
+                </div>
+                <div class="variant-title">CSS Animated Logo</div>
+                <div class="variant-description">Pure CSS with rotating portal rings</div>
+            </div>
+            
+            <!-- Icon only version -->
+            <div class="logo-variant">
+                <div class="icon-logo">
+                    <div class="icon-portal"></div>
+                </div>
+                <div class="variant-title">Icon Mark</div>
+                <div class="variant-description">Standalone portal icon for small spaces</div>
+            </div>
+            
+            <!-- Wordmark with special T -->
+            <div class="logo-variant">
+                <div class="wordmark">
+                    POR<span class="special-t">T</span>EL
+                </div>
+                <div class="variant-title">Wordmark with Double T</div>
+                <div class="variant-description">port + tel sharing the T</div>
+            </div>
+            
+            <!-- TELEPORTELEPORT loop -->
+            <div class="logo-variant">
+                <div class="teleport-loop">
+                    <div class="teleport-text">
+                        TELE<span class="highlight">PORTEL</span>EPORTELE<span class="highlight">PORTEL</span>EPORT
+                    </div>
+                </div>
+                <div class="variant-title">Teleport Loop</div>
+                <div class="variant-description">PORTEL highlighted in the loop</div>
+            </div>
+            
+            <!-- Light theme version -->
+            <div class="logo-variant light">
+                <div class="wordmark">PORTEL</div>
+                <div class="variant-title">Light Theme</div>
+                <div class="variant-description">For light backgrounds</div>
+            </div>
+        </div>
+        
+        <h2>Color Palette</h2>
+        <div class="color-palette">
+            <div class="color-swatch" style="background: #667eea;">#667eea<br>Primary</div>
+            <div class="color-swatch" style="background: #764ba2;">#764ba2<br>Secondary</div>
+            <div class="color-swatch" style="background: #f093fb;">#f093fb<br>Accent</div>
+            <div class="color-swatch" style="background: #00f2fe;">#00f2fe<br>Energy</div>
+            <div class="color-swatch" style="background: #10b981;">#10b981<br>Success</div>
+            <div class="color-swatch" style="background: #0a0a0f;">#0a0a0f<br>Dark BG</div>
+        </div>
+        
+        <h2>Logo Philosophy</h2>
+        <div style="max-width: 800px; margin-top: 2rem; line-height: 1.8;">
+            <p>The Portel logo embodies our core concept of portal technology through its animated O that represents an actual portal. The rotating rings create a sense of continuous movement and transformation, while the gradient colors suggest the magical transition between worlds.</p>
+            
+            <p>The overlaid double T represents the "port to tel" wordplay, showing how portal and teleport share common ground. The energy particles orbiting the portal O represent data and code flowing through our portal technology.</p>
+            
+            <p>The color palette moves from deep purple-blue (representing depth and technology) through vibrant pink (innovation and magic) to bright cyan (energy and efficiency), creating a visual journey that mirrors the transformation our products enable.</p>
+        </div>
+    </div>
+</body>
+</html>

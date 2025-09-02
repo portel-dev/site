@@ -6,8 +6,72 @@
     <title>Portel - Magical Portal Technology</title>
     <meta name="description" content="Open portals between worlds. Connect your codebase to AI intelligence through magical portal technology. NCP is just the beginning.">
     <link rel="stylesheet" href="portal-magic.css">
+    <style>
+        /* Header with logo */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+        
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .header-nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .header-nav a:hover {
+            color: #667eea;
+        }
+        
+        .portal-hero {
+            margin-top: 80px; /* Account for fixed header */
+        }
+    </style>
 </head>
 <body>
+    <!-- Header with enhanced logo -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="header-logo">
+                <img src="portel-logo-enhanced.svg" alt="Portel" height="32">
+            </div>
+            <nav class="header-nav">
+                <a href="#products">Products</a>
+                <a href="https://github.com/portel-dev" target="_blank">GitHub</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
     <!-- Magical Portal Hero Section -->
     <section class="portal-hero">
         <div class="two-worlds">
@@ -66,7 +130,7 @@
     <!-- Platform Mission Section -->
     <section style="padding: 6rem 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); text-align: center;">
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-            <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 2rem; background: linear-gradient(45deg, #667eea, #764ba2, #f093fb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 2rem; background: var(--portal-text-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
                 Portel: Where Magic Meets Efficiency
             </h2>
             <p style="font-size: 1.3rem; color: rgba(255,255,255,0.8); max-width: 800px; margin: 0 auto 2rem; line-height: 1.7;">
@@ -133,8 +197,8 @@
                         </div>
                     </div>
                     <div style="display: flex; gap: 1rem; justify-content: center;">
-                        <a href="https://www.npmjs.com/package/@portel/ncp" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">Try NCP Magic</a>
-                        <a href="https://github.com/portel-dev/ncp" style="border: 2px solid #4facfe; color: #4facfe; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">View Portal Code</a>
+                        <a href="https://www.npmjs.com/package/@portel/ncp" style="background: var(--portal-gradient); color: white; padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">Try NCP Magic</a>
+                        <a href="https://github.com/portel-dev/ncp" style="border: 2px solid var(--portal-energy); color: var(--portal-energy); padding: 0.75rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600;">View Portal Code</a>
                     </div>
                 </div>
 
@@ -195,7 +259,7 @@
                     <div style="background: rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; margin-bottom: 1rem;">
                         <code style="color: #00f2fe;">npm install -g @portel/ncp</code>
                     </div>
-                    <button onclick="copyToClipboard('npm install -g @portel/ncp')" style="background: linear-gradient(45deg, #667eea, #764ba2); border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">Copy Magic</button>
+                    <button onclick="copyToClipboard('npm install -g @portel/ncp')" style="background: var(--portal-gradient); border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">Copy Magic</button>
                 </div>
 
                 <div style="background: rgba(0, 0, 0, 0.3); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -204,7 +268,7 @@
                     <div style="background: rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 8px; font-family: 'JetBrains Mono', monospace; margin-bottom: 1rem;">
                         <code style="color: #f093fb;">ncp install</code>
                     </div>
-                    <button onclick="copyToClipboard('ncp install')" style="background: linear-gradient(45deg, #f093fb, #764ba2); border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">Copy Magic</button>
+                    <button onclick="copyToClipboard('ncp install')" style="background: linear-gradient(45deg, var(--portal-accent), var(--portal-secondary)); border: none; padding: 0.5rem 1rem; border-radius: 5px; color: white; cursor: pointer;">Copy Magic</button>
                 </div>
 
                 <div style="background: rgba(0, 0, 0, 0.3); padding: 2rem; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
@@ -233,21 +297,24 @@
         <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem;">
                 <div>
-                    <h4 style="color: #4facfe; margin-bottom: 1rem;">🌀 Portel Magic</h4>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem;">
+                        <img src="portel-logo-enhanced.svg" alt="Portel" height="24">
+                        <h4 style="color: var(--portal-energy); margin: 0;">Portel Magic</h4>
+                    </div>
                     <p style="color: rgba(255,255,255,0.6);">Portal Technology Platform</p>
                     <p style="color: rgba(255,255,255,0.6);">Efficiency through AI magic</p>
                 </div>
                 
                 <div>
-                    <h4 style="color: #f093fb; margin-bottom: 1rem;">Current Portals</h4>
+                    <h4 style="color: var(--portal-accent); margin-bottom: 1rem;">Current Portals</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="https://www.npmjs.com/package/@portel/ncp" style="color: #10b981; text-decoration: none;">NCP (Available Now)</a>
+                        <a href="https://www.npmjs.com/package/@portel/ncp" style="color: var(--portal-success); text-decoration: none;">NCP (Available Now)</a>
                         <span style="color: rgba(255,255,255,0.4);">More Magic (Coming Soon)</span>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 style="color: #00f2fe; margin-bottom: 1rem;">Connect Worlds</h4>
+                    <h4 style="color: var(--portal-energy); margin-bottom: 1rem;">Connect Worlds</h4>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                         <a href="https://github.com/portel-dev" style="color: rgba(255,255,255,0.7); text-decoration: none;">GitHub Portal</a>
                         <a href="https://twitter.com/_Arul" style="color: rgba(255,255,255,0.7); text-decoration: none;">Twitter Updates</a>
@@ -270,7 +337,7 @@
                 event.target.style.background = 'linear-gradient(45deg, #10b981, #4facfe)';
                 setTimeout(() => {
                     event.target.textContent = 'Copy Magic';
-                    event.target.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                    event.target.style.background = 'var(--portal-gradient)';
                 }, 2000);
             });
         }
