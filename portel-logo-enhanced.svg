@@ -1,37 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
   <defs>
-    <!-- Enhanced portal gradient with more vibrant colors -->
+    <!-- Enhanced portal gradient with emergence effect -->
     <radialGradient id="portalCenter" cx="50%" cy="50%">
       <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1">
         <animate attributeName="stop-color" values="#00f2fe;#f093fb;#667eea;#00f2fe" dur="3s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="50%" style="stop-color:#f093fb;stop-opacity:0.8">
+      <stop offset="30%" style="stop-color:#f093fb;stop-opacity:0.9">
         <animate attributeName="stop-color" values="#f093fb;#667eea;#764ba2;#f093fb" dur="3s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3">
+      <stop offset="60%" style="stop-color:#764ba2;stop-opacity:0.6">
         <animate attributeName="stop-color" values="#764ba2;#00f2fe;#f093fb;#764ba2" dur="3s" repeatCount="indefinite"/>
       </stop>
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0.2"/>
     </radialGradient>
     
-    <!-- Swirl gradient for rings -->
-    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1"/>
-      <stop offset="33%" style="stop-color:#764ba2;stop-opacity:1"/>
-      <stop offset="66%" style="stop-color:#f093fb;stop-opacity:1"/>
-      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1"/>
-    </linearGradient>
+    <!-- Ring gradient for outward flow -->
+    <radialGradient id="emergenceGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#00f2fe;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#f093fb;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.3"/>
+    </radialGradient>
     
     <!-- Enhanced glow -->
     <filter id="portalGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur2"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur3"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur2"/>
       <feMerge>
         <feMergeNode in="blur1"/>
         <feMergeNode in="blur2"/>
-        <feMergeNode in="blur3"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
+    </filter>
+    
+    <!-- Motion blur for expanding rings -->
+    <filter id="motionBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.5 0"/>
     </filter>
     
     <!-- Text style -->
@@ -53,98 +56,129 @@
   </defs>
   
   <!-- Background subtle glow -->
-  <ellipse cx="120" cy="40" rx="100" ry="30" fill="url(#portalCenter)" opacity="0.1"/>
+  <ellipse cx="120" cy="40" rx="100" ry="30" fill="url(#portalCenter)" opacity="0.08"/>
   
   <!-- P -->
   <text x="15" y="50" class="logo-text" fill="#667eea">P</text>
   
-  <!-- Enhanced Portal O -->
-  <g transform="translate(58, 40)">
-    <!-- Outer glow aura -->
-    <circle cx="0" cy="0" r="25" fill="none" stroke="url(#ringGradient)" stroke-width="0.5" opacity="0.2" filter="url(#portalGlow)">
-      <animate attributeName="r" values="25;30;25" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="4s" repeatCount="indefinite"/>
+  <!-- Enhanced Portal O with proper baseline alignment -->
+  <!-- Adjusted Y position from 40 to 50 to match text baseline -->
+  <g transform="translate(58, 50)">
+    
+    <!-- Emerging Ring 1 - Continuously expanding from center -->
+    <circle cx="0" cy="0" r="5" fill="none" stroke="url(#emergenceGradient)" stroke-width="2" 
+            stroke-dasharray="1 3" opacity="1" filter="url(#motionBlur)">
+      <animate attributeName="r" values="0;25" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dasharray" values="1 2;4 8" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.8;0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="3;2;1" dur="4s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Main outer ring with dash animation -->
-    <circle cx="0" cy="0" r="20" fill="none" stroke="url(#ringGradient)" stroke-width="3" 
-            stroke-dasharray="8 2" opacity="0.9" filter="url(#portalGlow)">
-      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-dasharray" values="8 2;2 8;8 2" dur="3s" repeatCount="indefinite"/>
+    <!-- Emerging Ring 2 - Delayed by 1 second -->
+    <circle cx="0" cy="0" r="5" fill="none" stroke="url(#emergenceGradient)" stroke-width="2" 
+            stroke-dasharray="1 3" opacity="1" filter="url(#motionBlur)">
+      <animate attributeName="r" values="0;25" dur="4s" begin="1s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dasharray" values="1 2;4 8" dur="4s" begin="1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.8;0" dur="4s" begin="1s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="3;2;1" dur="4s" begin="1s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Middle ring -->
-    <circle cx="0" cy="0" r="14" fill="none" stroke="#f093fb" stroke-width="2" 
-            stroke-dasharray="4 4" opacity="0.7">
-      <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="7s" repeatCount="indefinite"/>
+    <!-- Emerging Ring 3 - Delayed by 2 seconds -->
+    <circle cx="0" cy="0" r="5" fill="none" stroke="url(#emergenceGradient)" stroke-width="2" 
+            stroke-dasharray="1 3" opacity="1" filter="url(#motionBlur)">
+      <animate attributeName="r" values="0;25" dur="4s" begin="2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dasharray" values="1 2;4 8" dur="4s" begin="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.8;0" dur="4s" begin="2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="3;2;1" dur="4s" begin="2s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Inner ring -->
-    <circle cx="0" cy="0" r="9" fill="none" stroke="#00f2fe" stroke-width="1.5" 
-            stroke-dasharray="2 3" opacity="0.6">
-      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="5s" repeatCount="indefinite"/>
+    <!-- Emerging Ring 4 - Delayed by 3 seconds -->
+    <circle cx="0" cy="0" r="5" fill="none" stroke="url(#emergenceGradient)" stroke-width="2" 
+            stroke-dasharray="1 3" opacity="1" filter="url(#motionBlur)">
+      <animate attributeName="r" values="0;25" dur="4s" begin="3s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dasharray" values="1 2;4 8" dur="4s" begin="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.8;0" dur="4s" begin="3s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="3;2;1" dur="4s" begin="3s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Portal vortex center -->
-    <circle cx="0" cy="0" r="5" fill="url(#portalCenter)" opacity="1">
-      <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
+    <!-- Spiral dotted rings with perspective -->
+    <g opacity="0.6">
+      <!-- Outer spiral ring -->
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#764ba2" stroke-width="1.5" 
+              stroke-dasharray="5 10" opacity="0.4">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="12s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Middle spiral ring -->
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#f093fb" stroke-width="2" 
+              stroke-dasharray="3 6" opacity="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="8s" repeatCount="indefinite"/>
+      </circle>
+      
+      <!-- Inner spiral ring -->
+      <circle cx="0" cy="0" r="9" fill="none" stroke="#00f2fe" stroke-width="2.5" 
+              stroke-dasharray="2 4" opacity="0.6">
+        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Portal vortex center - pulsing bright core -->
+    <circle cx="0" cy="0" r="4" fill="url(#portalCenter)" opacity="1" filter="url(#portalGlow)">
+      <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
     </circle>
     
     <!-- Center bright point -->
-    <circle cx="0" cy="0" r="2" fill="#ffffff" opacity="0.9">
-      <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+    <circle cx="0" cy="0" r="1.5" fill="#ffffff" opacity="1">
+      <animate attributeName="opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="1.5;2;1.5" dur="1.5s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Orbiting particles -->
+    <!-- Emerging particles -->
     <g>
-      <circle cx="0" cy="-18" r="1.5" fill="#00f2fe" opacity="0">
-        <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+      <!-- Particle 1 - emerges and expands outward -->
+      <circle cx="0" cy="0" r="1" fill="#00f2fe" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" 
+                         values="0,0; 15,-10; 25,-15" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="18" cy="0" r="1.5" fill="#f093fb" opacity="0">
-        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="1s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="4s" begin="1s" repeatCount="indefinite"/>
+      
+      <!-- Particle 2 -->
+      <circle cx="0" cy="0" r="1" fill="#f093fb" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" 
+                         values="0,0; -12,8; -22,18" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" begin="0.5s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="0" cy="18" r="1.5" fill="#667eea" opacity="0">
-        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="2s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="180 0 0" to="540 0 0" dur="4s" begin="2s" repeatCount="indefinite"/>
+      
+      <!-- Particle 3 -->
+      <circle cx="0" cy="0" r="1" fill="#667eea" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" 
+                         values="0,0; 10,12; 20,25" dur="3s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" begin="1s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="-18" cy="0" r="1.5" fill="#764ba2" opacity="0">
-        <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="3s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="270 0 0" to="630 0 0" dur="4s" begin="3s" repeatCount="indefinite"/>
+      
+      <!-- Particle 4 -->
+      <circle cx="0" cy="0" r="1" fill="#764ba2" opacity="0">
+        <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" 
+                         values="0,0; -8,-14; -18,-26" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" begin="1.5s" repeatCount="indefinite"/>
       </circle>
-    </g>
-    
-    <!-- Energy sparks -->
-    <g opacity="0.6">
-      <path d="M 0,-8 L 0,-12" stroke="#00f2fe" stroke-width="1" opacity="0">
-        <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 0,-8 L 0,-12" stroke="#f093fb" stroke-width="1" opacity="0">
-        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="45 0 0" to="405 0 0" dur="8s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 0,-8 L 0,-12" stroke="#667eea" stroke-width="1" opacity="0">
-        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="8s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 0,-8 L 0,-12" stroke="#764ba2" stroke-width="1" opacity="0">
-        <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="rotate" from="135 0 0" to="495 0 0" dur="8s" repeatCount="indefinite"/>
-      </path>
     </g>
   </g>
   
-  <!-- RTEL with enhanced styling -->
+  <!-- RTEL with proper alignment -->
   <text x="88" y="50" class="logo-text" fill="#667eea">R</text>
   
-  <!-- Special double T effect -->
-  <g transform="translate(125, 40)">
+  <!-- Special double T effect - adjusted Y position -->
+  <g transform="translate(125, 50)">
     <!-- Shadow T -->
-    <text x="-2" y="10" class="logo-text" fill="#764ba2" opacity="0.3" style="filter: blur(1.5px);">T</text>
+    <text x="-2" y="0" class="logo-text" fill="#764ba2" opacity="0.3" style="filter: blur(1.5px);">T</text>
     <!-- Main T -->
-    <text x="0" y="10" class="logo-text" fill="#667eea">T</text>
+    <text x="0" y="0" class="logo-text" fill="#667eea">T</text>
   </g>
   
   <!-- EL -->
