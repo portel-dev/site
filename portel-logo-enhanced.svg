@@ -62,8 +62,8 @@
   <text x="15" y="50" class="logo-text" fill="#667eea">P</text>
   
   <!-- Enhanced Portal O with proper baseline alignment -->
-  <!-- Adjusted Y position from 40 to 50 to match text baseline -->
-  <g transform="translate(58, 50)">
+  <!-- Adjusted Y position to 40 to match text center -->
+  <g transform="translate(58, 40)">
     
     <!-- Emerging Ring 1 - Continuously expanding from center -->
     <circle cx="0" cy="0" r="5" fill="none" stroke="url(#emergenceGradient)" stroke-width="2" 
@@ -173,12 +173,12 @@
   <!-- RTEL with proper alignment -->
   <text x="88" y="50" class="logo-text" fill="#667eea">R</text>
   
-  <!-- Special double T effect - adjusted Y position -->
-  <g transform="translate(125, 50)">
+  <!-- Special double T effect -->
+  <g transform="translate(125, 40)">
     <!-- Shadow T -->
-    <text x="-2" y="0" class="logo-text" fill="#764ba2" opacity="0.3" style="filter: blur(1.5px);">T</text>
+    <text x="-2" y="10" class="logo-text" fill="#764ba2" opacity="0.3" style="filter: blur(1.5px);">T</text>
     <!-- Main T -->
-    <text x="0" y="0" class="logo-text" fill="#667eea">T</text>
+    <text x="0" y="10" class="logo-text" fill="#667eea">T</text>
   </g>
   
   <!-- EL -->
